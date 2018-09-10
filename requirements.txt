@@ -1,0 +1,4 @@
+aiohttp
+aiohug
+pytest
+pytest-aiohttp

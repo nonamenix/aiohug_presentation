@@ -19,21 +19,21 @@ class ResponseSchema(RequestSchema):
 
 
 @routes.post("/users/")
-def create_user(body: RequestSchema) -> ResponseSchema:
+async def create_user(body: RequestSchema) -> ResponseSchema:
     """
     http --json POST  http://localhost:8080/users/ nickname=test
 
     :param body:
     :return:
     """
-    body["id"] = uuid.uuid4()
+    body["id"] = str(uuid.uuid4())
     return 201, body
 
 
 @routes.get("/users/{uuid}/")
-def get_user(uuid: fields.UUID(), version: fields.Int() = 1) -> ResponseSchema:
+async def get_user(uuid: fields.UUID(), version: fields.Int() = 1) -> ResponseSchema:
     return {
-        "id": uuid,
+        "id": str(uuid),
         "nickname": "random",
         "first_name": "random",
         "age": 15,
