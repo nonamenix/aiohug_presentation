@@ -2,6 +2,7 @@ from aiohttp import web
 
 
 async def hello(request):
+    # unnecessary `request` object
     return web.Response(text="Hello, world")
 
 
