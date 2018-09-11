@@ -6,7 +6,7 @@ def create_app():
     routes = aiohug.RouteTableDef()
 
     @routes.get("/hello/")
-    async def hello(name, count=1):
+    async def hello(name, count: int = 1):  # you don't need to cast arguments
         return web.Response(text=f"Hello, {name}\n" * count)
 
     app = web.Application()
