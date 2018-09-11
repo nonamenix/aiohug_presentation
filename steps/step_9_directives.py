@@ -26,7 +26,7 @@ def create_app():
     return app
 
 
-async def test_cast_error(test_client):
+async def test_app(test_client):
     client = await test_client(create_app())
 
     resp = await client.get("/get-from-redis")
