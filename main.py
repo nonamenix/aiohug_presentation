@@ -1,13 +1,12 @@
+import aiohug
 from aiohttp import web
 
 
 def create_app():
-    routes = web.RouteTableDef()
+    routes = aiohug.RouteTableDef()
 
     @routes.get("/hello/{name}")
-    async def hello(request: web.Request):
-        # needless go to doc
-        name = request.match_info['name']
+    async def hello(name):
         return web.Response(text=f"Hello, {name}")
 
     app = web.Application()

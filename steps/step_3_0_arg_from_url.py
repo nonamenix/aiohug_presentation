@@ -6,7 +6,7 @@ def create_app():
 
     @routes.get("/hello/{name}")
     async def hello(request: web.Request):
-        # needless got to doc
+        # needless go to doc
         name = request.match_info['name']
         return web.Response(text=f"Hello, {name}")
 
